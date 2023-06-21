@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="0">
+
+  <testsuite name="MyStore.ContactUs"
+    errors="1" failures="0" hostname="" id="" package="MyStore" skipped="13"
+    tests="0" time="0.001000" timestamp="">
+  
+
+  
+    <system-err>
+       An error occurred while creating a new ChromeDriver session: [Error] EADDRINUSE connect EADDRINUSE 127.0.0.1:9515
+  Verify if ChromeDriver is configured correctly; using:
+  {
+     start_process: true,
+     server_path: &#39;D:\\NightWatch\\node_modules\\chromedriver\\lib\\chromedriver\\chromedriver.exe&#39;,
+     port: 9515,
+     host: &#39;localhost&#39;,
+     ssl: false,
+     default_path_prefix: &#39;&#39;,
+     proxy: undefined,
+     cli_args: {}
+  }
+
+ 
+  Set webdriver.log_path in your Nightwatch config to retrieve more logs from ChromeDriver.
+    </system-err>
+  
+
+    
+    <error message="An error occurred while creating a new ChromeDriver session: [Error] EADDRINUSE connect EADDRINUSE 127.0.0.1:9515"><![CDATA[
+      Error: An error occurred while creating a new ChromeDriver session: [Error] EADDRINUSE connect EADDRINUSE 127.0.0.1:9515
+    at Timeout._onTimeout (D:\NightWatch\node_modules\nightwatch\lib\transport\selenium-webdriver\httpclient.js:90:27)
+    at listOnTimeout (node:internal/timers:569:17)
+    at process.processTimers (node:internal/timers:512:7)
+      ]]></error>  
+
+  
+    
+    <testcase
+      name="Contact Us Page and Form Test" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Without all required fields" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering Subject Heading only" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering Valid Email only" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering Invalid Email only" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering Message only" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Without entering a message" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering Subject Heading, wrong email and blank address" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering Subject Heading,wrong email and message" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering Subject Heading,empty email and a message" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering no Heading, valid email and a message" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering all required fields" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Entering Spaces in the message field" classname="MyStore.ContactUs">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

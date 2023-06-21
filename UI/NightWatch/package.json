@@ -1,0 +1,19 @@
+{
+  "name": "nightwatch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nightwatch/mobile-helper": "^0.1.12",
+    "@nightwatch/react": "^0.4.3",
+    "appium": "^1.22.3",
+    "chromedriver": "^114.0.2",
+    "nightwatch": "^2.6.21"
+  }
+}
