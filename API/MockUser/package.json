@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mock-user-auth": "^1.0.15"
+  },
+  "scripts": {
+	  "test": "mocha --reporter mochawesome api.test.js",
+	  "dev": "nodemon ./node_modules/mock-user-auth/bin/www.js"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.3",
+    "supertest": "^6.3.3"
+  }
+}
