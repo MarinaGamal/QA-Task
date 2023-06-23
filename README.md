@@ -1,4 +1,4 @@
-# Testing My Store Website using NightwatchJS and Mocha-Auth-User API
+# Testing My Store Website using NightwatchJS and testing Mocha-Auth-User API Routes using SuperTest
 
 ## Overview
 This README provides instructions on how to test the My Store website using NightwatchJS and test the Mocha-Auth-User API routes using Supertest. It includes steps for setting up and running UI tests using NightwatchJS and API tests using Supertest and Mocha.
