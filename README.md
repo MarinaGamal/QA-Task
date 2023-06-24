@@ -1,63 +1,72 @@
-Testing My Store Website using NightwatchJS
+# Testing My Store Website using NightwatchJS and testing Mocha-Auth-User API Routes using SuperTest
 
-This README provides instructions on how to test the My Store website using NightwatchJS and to test mocha-auth-user API routes using supertest.
- 
-NightwatchJS is a browser automation framework that allows you to write automated tests in JavaScript.
-Supertest is SuperTest is a library for testing HTTP servers in Node.js. It provides a high-level API for making HTTP requests and asserting the responses, allowing you to easily test your web applications and APIs.
+## Overview
+This README provides instructions on how to test the My Store website using NightwatchJS and test the Mocha-Auth-User API routes using Supertest. It includes steps for setting up and running UI tests using NightwatchJS and API tests using Supertest and Mocha.
 
+## UI Testing with NightwatchJS
+NightwatchJS is a browser automation framework that allows you to write automated tests in JavaScript. Follow the steps below to run UI tests on the My Store website.
 
-The reports and bug reports and documentation for both the UI and API parts are avaialable inside output folder in the root directory.
+### Prerequisites
+- Node.js and NPM (Node Package Manager) should be installed.
+- NightwatchJS should be installed.
 
-For the first folder (UI):
-We are testing the UI for MyStore WebPage, specifically the ContactUs form and the searching for a dress function.
+### Getting Started
+1. Clone or download the repository.
+2. Navigate to the `UI/NightWatch` folder in the project directory.
+3. Open the Command Line.
+4. Run the following command to initialize NightwatchJS:
+   npm init nightwatch
+Follow the setup guide to choose the browser and testing type.
+5. To test the ContactUs form, run the following command:
+npx nightwatch test/MyStore/ContactUs.js
+This will generate an HTML report with the test case output in the `test-output/night-watch-html-report` folder.
+6. To test the SearchDress function, run the following command:
+   npx nightwatch test/MyStore/SearchDress.js
+This will generate an HTML report with the test case output in the `test-output/night-watch-html-report` folder.
 
-Prerequisites for running the project:
-1.Node.js to be installed.
-2.NPM (Node Package Manager) to be installed.
-3.NightwatchJS to be installed.
+## API Testing with Supertest and Mocha-Auth-User
+Supertest is a library for testing HTTP servers in Node.js, providing a high-level API for making HTTP requests and asserting responses. Follow the steps below to run API tests on the Mocha-Auth-User routes.
 
-Getting Started (Windows Version):
-1.Clone  or download the repository 
-2.Navigate to UI/NightWatch folder in the project directory.
-3.Open the Command Line
-5.Run npm init nightwatch
-6.Choose the used browser, testing type and so on, you can find the details in the guide here: https://nightwatchjs.org/guide/quickstarts/create-and-run-a-nightwatch-test.html
-4.Run the following command for testing ContactUs form npx nightwatch test/MyStore/ContactUs.js
-5.The HTML report with the test cases output will be created in test-output/night-watch-html-report
-6.Run the following command for testing SearchDress function npx nightwatch test/MyStore/SearchDress.js
-7.The HTML report with the test cases output will be created in test-output/night-watch-html-report
+### Prerequisites
+- Supertest should be installed.
+- Mock-User-Auth should be installed.
+- Mocha test runner should be installed.
 
-For the second folder (API):
-We are testing the mock-user-auth APIs using supertest and mocha as a test runner
+### Getting Started
+1. Clone or download the repository.
+2. Navigate to the `API/MockUser` folder in the project directory.
+3. Open the Command Line.
+4. Run the following command to install the Mock-User-Auth module:
+   npm i --save mock-user-auth
+5. Create a script in the `package.json` file:
+```json
+{
+  "scripts": {
+    "dev": "nodemon ./node_modules/mock-user-auth/bin/www.js"
+  }
+}
+```
+6. Start the Mock-User-Auth server by running:
+ npm run dev
+Keep this command running in one command line instance.
 
-Prerequisites for running the project:
-1.SuperTest to be installed.
-2.mock-user-auth to be installed.
-3.Mocha test runner to be installed.
+Open a new command line instance and navigate to the API/MockUser folder.
 
-Getting Started (Windows Version):
-1.Clone  or download the repository
-2.Navigate to API/MockUser folder in the project directory.
-3.Open the Command Line
-4.Run npm i --save mock-user-auth
-5.Create script in package.json:
+7. Run the following command to install Supertest:
+   npm install supertest --save-dev
 
- {
-   "script": {
-     "dev": "nodemon ./node_modules/mock-user-auth/bin/www.js"
-   }
- }
-6.npm run dev
+8. Run the following command to install Mocha:
+   npm install --save-dev mocha
 
-In a new command line while keepint the other one running run the following commands 
-7.npm install supertest --save-dev
-8.npm install --save-dev mocha
-9.npx mocha api.test.js
+9. Execute the API tests by running the command:
+   npx mocha api.test.js
 
-To create HTML report I used mochawesome
-10.npm install --save-dev mochawesome
-11.Add this under scripts in the package.json file: "test": "mocha --reporter mochawesome api.test.js",
-12.Run npm test
-13.An HTML report with test cases will be created inside mochawesome-report
+10. To generate an HTML report using mochawesome, run the following command:
+    npm install --save-dev mochawesome
 
+11. Add the following line under the "scripts" section in the package.json file:
+    "test": "mocha --reporter mochawesome api.test.js"
 
+12. Run the command npm test to execute the tests and generate an HTML report.
+
+13. The HTML report with the test cases will be created inside the mochawesome-report folder.
