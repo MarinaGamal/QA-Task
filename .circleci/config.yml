@@ -6,6 +6,7 @@ orbs:
 jobs:
   test:
     executor: node/default
+    working_directory: ~/UI/NightWatch
     steps:
       - checkout
       - node/install-packages:
@@ -14,8 +15,7 @@ jobs:
           name: Run UI Tests
           command: |
             npm init nightwatch
-            nightwatch --config ./UI/NightWatch/nightwatch.conf.js --env default --test test/MyStore/ContactUs.js
-
+            npx nightwatch test/MyStore/ContactUs.js
 workflows:
   test_my_app:
     jobs:
