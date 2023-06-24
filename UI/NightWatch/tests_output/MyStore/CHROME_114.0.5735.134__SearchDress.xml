@@ -5,15 +5,15 @@
 
   <testsuite name="MyStore.SearchDress"
     errors="0" failures="1" hostname="" id="" package="MyStore" skipped="0"
-    tests="1" time="19.13" timestamp="">
+    tests="1" time="21.42" timestamp="">
   
-    <testcase name="Search" classname="MyStore.SearchDress" time="6.981" assertions="4">
+    <testcase name="Search" classname="MyStore.SearchDress" time="7.445" assertions="4">
 
     
 
     
 
-      <failure message="Testing if element &lt;.product-container&gt; contains text &#39;dress&#39; in 5000ms - expected &#34;contains text &#39;dress&#39;&#34; but got: &#34;does not contain &#39;dress&#39;&#34; (5113ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\SearchDress.js:11:12)</failure>
+      <failure message="Testing if element &lt;.product-container&gt; contains text &#39;dress&#39; in 5000ms - expected &#34;contains text &#39;dress&#39;&#34; but got: &#34;does not contain &#39;dress&#39;&#34; (5109ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\SearchDress.js:11:12)</failure>
 
     
     </testcase>

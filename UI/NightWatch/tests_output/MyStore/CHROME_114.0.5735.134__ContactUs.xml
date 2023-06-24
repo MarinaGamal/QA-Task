@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="5"
-            tests="16">
+            failures="9"
+            tests="19">
 
   <testsuite name="MyStore.ContactUs"
-    errors="0" failures="5" hostname="" id="" package="MyStore" skipped="0"
-    tests="16" time="116.7" timestamp="">
+    errors="0" failures="9" hostname="" id="" package="MyStore" skipped="0"
+    tests="19" time="155.8" timestamp="">
   
-    <testcase name="Contact Us Page and Form Test" classname="MyStore.ContactUs" time="0.2140" assertions="4">
+    <testcase name="Contact Us Page and Form Test" classname="MyStore.ContactUs" time="0.1470" assertions="4">
 
     
 
@@ -18,67 +18,38 @@
     
     </testcase>
   
-    <testcase name="Submit with all blank" classname="MyStore.ContactUs" time="6.433" assertions="3">
+    <testcase name="Submit with all blank" classname="MyStore.ContactUs" time="6.314" assertions="3">
 
     
 
-      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please select a subject from the list provided.&#39; in 5000ms - expected &#34;contains text &#39;Please select a subject from the list provided.&#39;&#34; but got: &#34;does not contain &#39;Please select a subject from the list provided.&#39;&#34; (5007ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:22:20)</failure>
-
-    
-    </testcase>
-  
-    <testcase name="Entering Subject Heading only Customer Service" classname="MyStore.ContactUs" time="1.854" assertions="4">
-
-    
-
-    
-
-    
+      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please enter required fields.&#39; in 5000ms - expected &#34;contains text &#39;Please enter required fields.&#39;&#34; but got: &#34;does not contain &#39;Please enter required fields.&#39;&#34; (5077ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:20:20)</failure>
 
     
     </testcase>
   
-    <testcase name="Entering Subject Heading only Webmaster" classname="MyStore.ContactUs" time="1.245" assertions="4">
+    <testcase name="Entering Subject Heading only Customer Service" classname="MyStore.ContactUs" time="6.696" assertions="4">
 
     
 
     
 
-    
-
-    
-    </testcase>
-  
-    <testcase name="Entering Invalid Email only" classname="MyStore.ContactUs" time="1.221" assertions="3">
-
-    
-
-    
+      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please enter email address&#39; in 5000ms - expected &#34;contains text &#39;Please enter email address&#39;&#34; but got: &#34;does not contain &#39;Please enter email address&#39;&#34; (5059ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:33:20)</failure>
 
     
     </testcase>
   
-    <testcase name="Entering Valid Email only" classname="MyStore.ContactUs" time="6.783" assertions="3">
+    <testcase name="Entering Subject Heading only Webmaster" classname="MyStore.ContactUs" time="6.287" assertions="4">
 
     
 
-      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please select a subject from the list provided.&#39; in 5000ms - expected &#34;contains text &#39;Please select a subject from the list provided.&#39;&#34; but got: &#34;does not contain &#39;Please select a subject from the list provided.&#39;&#34; (5501ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:71:20)</failure>
-
-    
-    </testcase>
-  
-    <testcase name="Entering Message only" classname="MyStore.ContactUs" time="6.934" assertions="3">
-
     
 
-      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please select a subject from the list provided.&#39; in 5000ms - expected &#34;contains text &#39;Please select a subject from the list provided.&#39;&#34; but got: &#34;does not contain &#39;Please select a subject from the list provided.&#39;&#34; (5002ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:85:20)</failure>
+      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please enter email address&#39; in 5000ms - expected &#34;contains text &#39;Please enter email address&#39;&#34; but got: &#34;does not contain &#39;Please enter email address&#39;&#34; (5020ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:45:20)</failure>
 
     
     </testcase>
   
-    <testcase name="Without entering a message" classname="MyStore.ContactUs" time="1.475" assertions="4">
-
-    
+    <testcase name="Entering Invalid Email only" classname="MyStore.ContactUs" time="1.101" assertions="3">
 
     
 
@@ -87,18 +58,40 @@
     
     </testcase>
   
-    <testcase name="Entering Subject Heading, wrong email and blank message" classname="MyStore.ContactUs" time="1.317" assertions="4">
-
-    
-
-    
-
-    
+    <testcase name="Entering Invalid Email and check for wrong sign" classname="MyStore.ContactUs" time="0.3320" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Entering Subject Heading,wrong email and message" classname="MyStore.ContactUs" time="1.261" assertions="4">
+    <testcase name="Entering Valid Email only" classname="MyStore.ContactUs" time="6.889" assertions="3">
+
+    
+
+      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please select a subject from the list provided.&#39; in 5000ms - expected &#34;contains text &#39;Please select a subject from the list provided.&#39;&#34; but got: &#34;does not contain &#39;Please select a subject from the list provided.&#39;&#34; (5501ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:78:20)</failure>
+
+    
+    </testcase>
+  
+    <testcase name="Entering Valid Email only and check for sign" classname="MyStore.ContactUs" time="0.3330" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="Entering Valid Email only with spaces" classname="MyStore.ContactUs" time="5.763" assertions="1">  <failure message="Testing if attribute &#39;class&#39; of element &lt;p.form-group&gt; contains &#39;form-ok&#39; in 5000ms - expected &#34;contains &#39;form-ok&#39;&#34; but got: &#34;form-group form-error&#34; (5342ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:95:17)</failure>
+
+    
+    </testcase>
+  
+    <testcase name="Entering Message only" classname="MyStore.ContactUs" time="6.394" assertions="3">
+
+    
+
+      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please select a subject from the list provided.&#39; in 5000ms - expected &#34;contains text &#39;Please select a subject from the list provided.&#39;&#34; but got: &#34;does not contain &#39;Please select a subject from the list provided.&#39;&#34; (5021ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:109:20)</failure>
+
+    
+    </testcase>
+  
+    <testcase name="Without entering a message" classname="MyStore.ContactUs" time="1.312" assertions="4">
 
     
 
@@ -109,7 +102,7 @@
     
     </testcase>
   
-    <testcase name="Entering Subject Heading,empty email and a message" classname="MyStore.ContactUs" time="1.300" assertions="4">
+    <testcase name="Entering Subject Heading, wrong email and blank message" classname="MyStore.ContactUs" time="1.286" assertions="4">
 
     
 
@@ -120,26 +113,9 @@
     
     </testcase>
   
-    <testcase name="Entering no Heading, valid email and a message" classname="MyStore.ContactUs" time="1.588" assertions="3">
+    <testcase name="Entering Subject Heading,wrong email and message" classname="MyStore.ContactUs" time="1.333" assertions="4">
 
     
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="Testing file upload" classname="MyStore.ContactUs" time="2.911" assertions="1">
-
-    
-    </testcase>
-  
-    <testcase name="Testing file upload within the maximum size" classname="MyStore.ContactUs" time="0.1100" assertions="1">
-
-    
-    </testcase>
-  
-    <testcase name="Entering all required fields" classname="MyStore.ContactUs" time="4.290" assertions="3">
 
     
 
@@ -148,11 +124,50 @@
     
     </testcase>
   
-    <testcase name="Entering Spaces in the message field" classname="MyStore.ContactUs" time="17.14" assertions="3">
+    <testcase name="Entering Subject Heading,empty email and a message" classname="MyStore.ContactUs" time="6.397" assertions="4">
 
-      <failure message="Testing if element &lt;.alert.alert-danger&gt; is visible in 5000ms - expected &#34;is visible&#34; but got: &#34;element could not be located&#34; (5202ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:249:17)</failure>
+    
 
-      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;The message cannot be blank.&#39; in 5000ms - expected &#34;contains text &#39;The message cannot be blank.&#39;&#34; but got: &#34;element could not be located&#34; (5189ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:250:20)</failure>
+    
+
+      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;Please enter email address.&#39; in 5000ms - expected &#34;contains text &#39;Please enter email address.&#39;&#34; but got: &#34;does not contain &#39;Please enter email address.&#39;&#34; (5096ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:161:20)</failure>
+
+    
+    </testcase>
+  
+    <testcase name="Entering no Heading, valid email and a message" classname="MyStore.ContactUs" time="1.301" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Testing file upload" classname="MyStore.ContactUs" time="2.779" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="Testing file upload within the maximum size" classname="MyStore.ContactUs" time="0.1050" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="Entering all required fields" classname="MyStore.ContactUs" time="4.341" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Entering Spaces in the message field" classname="MyStore.ContactUs" time="16.98" assertions="3">
+
+      <failure message="Testing if element &lt;.alert.alert-danger&gt; is visible in 5000ms - expected &#34;is visible&#34; but got: &#34;element could not be located&#34; (5199ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:251:17)</failure>
+
+      <failure message="Testing if element &lt;.alert.alert-danger&gt; contains text &#39;The message cannot be blank.&#39; in 5000ms - expected &#34;contains text &#39;The message cannot be blank.&#39;&#34; but got: &#34;element could not be located&#34; (5205ms)">    at DescribeInstance.&lt;anonymous&gt; (D:\QA Task\UI\NightWatch\test\MyStore\ContactUs.js:252:20)</failure>
 
     
     </testcase>

@@ -12,14 +12,12 @@ describe('Contact Us Test', function () {
   //Submit without all required fields
   it('Submit with all blank', function (browser) {
 	browser.click('select[id="id_contact"] option[value="0"]');
-	//browser.verify.visible("#desc_contact0");
     browser.setValue('input#email', '');
     browser.setValue('textarea#message', '');
     browser.click('button#submitMessage');
     browser.waitForElementVisible('.alert.alert-danger', 5000);
 	browser.waitForElementNotPresent ('.alert.alert-success',5000);
-	//browser.expect.element('.alert.alert-success').to.have.attribute('style').which.contains('display: none');
-    browser.verify.containsText('.alert.alert-danger', 'Please select a subject from the list provided.');
+    browser.verify.containsText('.alert.alert-danger', 'Please enter required fields.');
 	
   });
   
@@ -34,6 +32,7 @@ describe('Contact Us Test', function () {
 	browser.waitForElementNotPresent ('.alert.alert-success',5000);
     browser.verify.containsText('.alert.alert-danger', 'Please enter email address');
   });
+  
     // Test with Entering Subject Heading only (Webmaster Option)
     it('Entering Subject Heading only Webmaster', function (browser) {
     browser.click('select[id="id_contact"] option[value="1"]');
@@ -46,24 +45,32 @@ describe('Contact Us Test', function () {
     browser.verify.containsText('.alert.alert-danger', 'Please enter email address');
   });
   
-   // Test with Entering Invalid Email only
+   // Test with Entering Invalid Email only, invalid email should appear
 	it('Entering Invalid Email only', function (browser) {
     browser.click('select[id="id_contact"] option[value="0"]');
     browser.setValue('input#email', 'test');
     browser.setValue('textarea#message', '');
-	//browser.pause(2000);
-	//browser.expect.element('input#email[data-validate="isEmail"] + i.icon-invalid').to.be.visible;
     browser.click('button#submitMessage');
     browser.waitForElementVisible('.alert.alert-danger', 5000);
 	browser.waitForElementNotPresent ('.alert.alert-success',5000);
     browser.verify.containsText('.alert.alert-danger', 'Invalid email address.');
 	});
 	
+	
+	// Test with Entering Invalid Email only, wrong validation sign should appear
+	it('Entering Invalid Email and check for wrong sign', function (browser) {
+    browser.click('select[id="id_contact"] option[value="0"]');
+    browser.setValue('input#email', 'test');
+    browser.setValue('textarea#message', '');
+	browser.verify.attributeContains('p.form-group', 'class', 'form-error');
+
+	});
+	
+	
     // Test with Entering Valid Email only
 	it('Entering Valid Email only', function (browser) {
     browser.click('select[id="id_contact"] option[value="0"]');
     browser.setValue('input#email', 'test@test.com');
-	//browser.expect.element('.form-group i.icon-valid').to.be.visible;
     browser.setValue('textarea#message', '');
     browser.click('button#submitMessage');
     browser.waitForElementVisible('.alert.alert-danger', 5000);
@@ -71,8 +78,25 @@ describe('Contact Us Test', function () {
     browser.verify.containsText('.alert.alert-danger', 'Please select a subject from the list provided.');
 	});
 	
+	// Test with Entering Valid Email only, right validation sign should appear
+	it('Entering Valid Email only and check for sign', function (browser) {
+    browser.click('select[id="id_contact"] option[value="0"]');
+    browser.setValue('input#email', 'test@test.com');
+    browser.setValue('textarea#message', '');
+	browser.verify.attributeContains('p.form-group', 'class', 'form-ok');
+
+	});
 	
-   
+	// Test with Entering Valid Email with space
+	it('Entering Valid Email only with spaces', function (browser) {
+    browser.click('select[id="id_contact"] option[value="0"]');
+    browser.setValue('input#email', 'marina@test.com ');
+    browser.setValue('textarea#message', '');
+	browser.verify.attributeContains('p.form-group', 'class', 'form-ok');
+    
+	});
+
+	
     // Test with Entering Message only
 	it('Entering Message only', function (browser) {
 
@@ -173,6 +197,8 @@ describe('Contact Us Test', function () {
     }); 
 	
 	
+	
+	
 //Testing file upload within the maximum size
      it('Testing file upload within the maximum size', function (browser) {
         const filePath = '../../upload/WebQAEngineer2023-Task.docx';
@@ -204,37 +230,11 @@ describe('Contact Us Test', function () {
     browser.setValue('textarea#message', 'Great!');
     browser.click('button#submitMessage');
 	browser.waitForElementVisible('.alert.alert-success', 5000);
-	//browser.waitForElementNotPresent ('.alert.alert-danger',5000);
     browser.verify.containsText('.alert.alert-success', 'Your message has been successfully sent to our team.');
 	
 	browser.pause(2000);
 	browser.url('http://automationpractice.multiformis.com/index.php?controller=contact');
 	});
-/* 	
-	browser.pause(2000);
-	browser.url('http://automationpractice.multiformis.com/index.php?controller=contact');
-	//all fields
-	browser.click('select[id="id_contact"] option[value="1"]');
-    browser.setValue('input#email', 'test@test.com');
-    browser.setValue('textarea#message', 'Great!');
-    browser.click('button#submitMessage');
-	browser.waitForElementVisible('.alert.alert-success', 5000);
-    browser.verify.containsText('.alert.alert-success', 'Your message has been successfully sent to our team.');
-	
-	browser.pause(2000);
-	browser.url('http://automationpractice.multiformis.com/index.php?controller=contact');
-	
-	browser.pause(2000);
-	browser.back();
-	//all fields
-	browser.click('select[id="id_contact"] option[value="1"]');
-    browser.setValue('input#email', 'test@test.com');
-    browser.setValue('textarea#message', 'Great!');
-    browser.click('button#submitMessage');
-	browser.waitForElementVisible('.alert.alert-success', 5000); */
-    //browser.verify.containsText('.alert.alert-success', 'Your message has been successfully sent to our team.');
-	
-	
 	
 	//Test with Entering spaces only in the message field
 	it('Entering Spaces in the message field', function (browser) {
