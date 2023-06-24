@@ -5,20 +5,16 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.1
 
 jobs:
-  test:
+
+  ContactUs:
+    executor: node/default
     docker:
       - image: cimg/node:13.12-browsers
     steps:
       - checkout
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
-
-  ContactUs:
-    executor: node/default
-    steps:
-      - checkout
-      - browser-tools/install-browser-tools
-
+   
       - run:
           name: Run UI Tests
           command: |
@@ -44,6 +40,5 @@ jobs:
 workflows:
   test_my_app:
     jobs:
-      - test
       - ContactUs
       - SearchDress
