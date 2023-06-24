@@ -6,15 +6,17 @@ orbs:
 jobs:
   test:
     executor: node/default
-    working_directory: ~/UI/NightWatch
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
+      - run:
+          name: Install Nightwatch Dependencies
+          command: |
+            cd UI/NightWatch
+            npm install
       - run:
           name: Run UI Tests
           command: |
-            npm install
+            cd UI/NightWatch
             npx nightwatch test/MyStore/ContactUs.js
 
 workflows:
