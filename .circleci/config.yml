@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@5.0.2
 
 jobs:
-  test:
+  ContactUs:
     executor: node/default
     steps:
       - checkout
@@ -12,7 +12,14 @@ jobs:
       - run:
           command: npx nightwatch test/MyStore/ContactUs.js
           name: Run tests
-     
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+workflows:
+  test:
+    jobs:
+      - ContactUs
 
 
   
