@@ -17,8 +17,7 @@ jobs:
           name: Run UI Tests
           command: |
             cd UI/NightWatch
-            npm config set user 0
-            npm config set unsafe-perm true
+            chmod -R a+x node_modules
             npx nightwatch test/MyStore/ContactUs.js
 
 workflows:
