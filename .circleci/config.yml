@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:14.15.0 # Choose the appropriate Docker image for your project
+      - image: circleci/node:14.17.3 # Choose the appropriate Docker image for your project
     steps:
       - checkout
       - run:
