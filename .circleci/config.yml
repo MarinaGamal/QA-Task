@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Run UI Tests
-          command: npx nightwatch test/MyStore/ContactUs.j 
+          command: npx nightwatch test/MyStore/ContactUs.js
 
 
 
