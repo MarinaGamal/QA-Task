@@ -13,14 +13,10 @@ jobs:
       - node/install-packages
 
       - run:
-          name: Install Nightwatch Dependencies
-          command: |
-            cd UI/NightWatch
-            npm install
-      - run:
           name: Run UI Tests
           command: |
             cd UI/NightWatch
+            npm install
             chmod -R a+x node_modules
             npx nightwatch test/MyStore/ContactUs.js
 
@@ -30,15 +26,12 @@ jobs:
       - checkout
       - browser-tools/install-browser-tools
       - node/install-packages
-      - run:
-          name: Install Nightwatch Dependencies
-          command: |
-            cd UI/NightWatch
-            npm install
+
       - run:
           name: Run UI Tests
           command: |
             cd UI/NightWatch
+            np, install
             chmod -R a+x node_modules
             npx nightwatch test/MyStore/SearchDress.js
 
