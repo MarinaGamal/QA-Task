@@ -6,7 +6,7 @@ orbs:
 jobs:
   test:
     executor: node/default
-    working_directory: ~/QA\ Test/UI/NightWatch
+    working_directory: ~/QA\ UI/NightWatch/test/MyStore
     steps:
       - checkout
       - node/install-packages:
