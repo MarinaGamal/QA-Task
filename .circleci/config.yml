@@ -1,12 +1,22 @@
 version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+
 jobs:
-  build:
-    docker:
-      - image: circleci/node:14.17.3 # Choose the appropriate Docker image for your project
+  test:
+    executor: node/default
     steps:
       - checkout
+      - node/install-packages:
+          pkg-manager: npm
       - run:
           name: Run UI Tests
           command: |
             npm init nightwatch
             npx nightwatch test/MyStore/ContactUs.js
+
+workflows:
+  test_my_app:
+    jobs:
+    - test
