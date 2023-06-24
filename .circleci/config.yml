@@ -9,6 +9,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: chrome
+          command: google-chrome-stable --version
+      - run:
           name: Install Nightwatch Dependencies
           command: |
             cd UI/NightWatch
