@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: chrome
-          command: google-chrome-stable --version
+          command: google-chrome --version
       - run:
           name: Install Nightwatch Dependencies
           command: |
