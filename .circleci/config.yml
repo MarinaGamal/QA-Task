@@ -17,7 +17,9 @@ jobs:
           name: Run UI Tests
           command: |
             cd UI/NightWatch
-            sudo npx nightwatch test/MyStore/ContactUs.js
+            npm config set user 0
+            npm config set unsafe-perm true
+            npx nightwatch test/MyStore/ContactUs.js
 
 workflows:
   test_my_app:
