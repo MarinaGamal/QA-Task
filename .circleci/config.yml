@@ -10,7 +10,6 @@ jobs:
     steps:
       - checkout
       - browser-tools/install-browser-tools
-      - node/install-packages
 
       - run:
           name: Run UI Tests
@@ -25,13 +24,12 @@ jobs:
     steps:
       - checkout
       - browser-tools/install-browser-tools
-      - node/install-packages
 
       - run:
           name: Run UI Tests
           command: |
             cd UI/NightWatch
-            np, install
+            npm install
             chmod -R a+x node_modules
             npx nightwatch test/MyStore/SearchDress.js
 
