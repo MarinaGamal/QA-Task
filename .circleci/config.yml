@@ -9,8 +9,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: chrome
-          command: google-chrome --version
+          name: Install Chrome
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y google-chrome-stable
       - run:
           name: Install Nightwatch Dependencies
           command: |
