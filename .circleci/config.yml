@@ -2,20 +2,15 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.0.2
+  browser-tools: circleci/browser-tools@1.4.1
 
 jobs:
   ContactUs:
     executor: node/default
     steps:
       - checkout
-
-      - run:
-          command: |
-            curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-            echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-            sudo apt-get update
-            sudo apt-get install -y google-chrome-stable
-            google-chrome --version
+      - browser-tools/install-browser-tools
+      - node/install-packages
 
       - run:
           name: Install Nightwatch Dependencies
@@ -33,6 +28,8 @@ jobs:
     executor: node/default
     steps:
       - checkout
+      - browser-tools/install-browser-tools
+      - node/install-packages
       - run:
           name: Install Nightwatch Dependencies
           command: |
