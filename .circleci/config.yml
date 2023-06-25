@@ -17,7 +17,7 @@ jobs:
       - run:
           name: "Install Mock-User-Auth and Supertest"
           command: |
-            cd MockUser
+            cd API/MockUser
             npm install mock-user-auth
             npm install supertest --save-dev
             npm install --save-dev mocha
