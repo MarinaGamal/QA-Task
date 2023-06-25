@@ -32,9 +32,9 @@ jobs:
             sudo chmod +x node_modules/mock-user-auth/bin/www.js
             npm run dev
       - persist_to_workspace:
-          root: .
+          root: ~/QA-Task
           paths:
-            - ~/MockUser
+            - API/MockUser
 
   ExecuteAPI:
     executor: my-executor
@@ -44,7 +44,7 @@ jobs:
       - checkout:
           path: ~/QA-Task
       - attach_workspace:
-          at: ~/MockUser
+          at: API/MockUser
       - run:
           name: "Execute API tests"
           command: |
