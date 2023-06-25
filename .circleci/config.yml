@@ -36,8 +36,8 @@ jobs:
             SERVER_PORT=3000
 
             # Set environment variables
-            echo "SERVER_IP=${SERVER_IP}" >> $BASH_ENV
-            echo "SERVER_PORT=${SERVER_PORT}" >> $BASH_ENV
+            echo "export SERVER_IP=${SERVER_IP}" >> $BASH_ENV
+            echo "export SERVER_PORT=${SERVER_PORT}" >> $BASH_ENV
 
       - persist_to_workspace:
           root: ~/QA-Task
@@ -65,6 +65,7 @@ jobs:
           when: always
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
+
 
 
   ContactUs:
