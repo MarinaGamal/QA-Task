@@ -39,7 +39,7 @@ jobs:
           command: |
             sleep 10
             sudo chmod +x node_modules/.bin/mocha
-            npx mocha api.test.js --endpoint http://localhost:3000 --timeout 5000
+            npx mocha api.test.js --endpoint http://localhost:3000 
 
 
           when: on_success
