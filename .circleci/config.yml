@@ -67,6 +67,12 @@ jobs:
             npm run dev 
             sleep 20
 
+      - run:
+          name: "check"
+          command:  
+            ps aux
+      
+
   ExecuteAPITests:
     docker:
       -  image: cimg/node:lts-browsers
