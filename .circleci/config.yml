@@ -31,18 +31,8 @@ jobs:
           command: |
             sudo chmod +x node_modules/mock-user-auth/bin/www.js
             npm run dev
-            # Capture server IP and port
-            SERVER_IP=$(ifconfig eth0 | grep 'inet ' | awk '{print $2}')
-            SERVER_PORT=3000
-
-            # Set environment variables
-            echo "export SERVER_IP=${SERVER_IP}" >> $BASH_ENV
-            echo "export SERVER_PORT=${SERVER_PORT}" >> $BASH_ENV
-
-      - persist_to_workspace:
-          root: ~/QA-Task
-          paths:
-            - API/MockUser
+            echo "SERVER_IP=$(ifconfig eth0 | grep 'inet ' | awk '{print $2}') >> $BASH_ENV"
+            echo "SERVER_PORT=3000" >> $BASH_ENV
 
   ExecuteAPI:
     executor: my-executor
@@ -54,19 +44,12 @@ jobs:
       - run:
           name: "Execute API tests"
           command: |
-            # Read environment variables from the workspace
-            source $BASH_ENV
-
-            chmod +x node_modules/.bin/mocha
-            # Access the server using the captured details
-            echo "Connecting to server at ${SERVER_IP}:${SERVER_PORT}"
+            echo "Connecting to server at $SERVER_IP:$SERVER_PORT"
             sleep 30
             npx mocha api.test.js --port $SERVER_PORT
           when: always
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
-
-
 
   ContactUs:
     docker:
