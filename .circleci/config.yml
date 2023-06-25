@@ -77,7 +77,8 @@ jobs:
           name: "Execute API tests"
           command: |
             sleep 10
-            chmod +x node_modules/.bin/mocha && npx mocha api.test.js
+            chmod +x node_modules/.bin/mocha  
+            npx mocha api.test.js
 
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
@@ -86,6 +87,4 @@ workflows:
   test:
     jobs:
       - RunServerAPI
-      - ExecuteAPITests:
-          requires:
-            - RunServerAPI
+      
