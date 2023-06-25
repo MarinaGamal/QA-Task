@@ -64,29 +64,16 @@ jobs:
           background: true
           command:  
             chmod -R a+x node_modules && nohup npm run dev > server.log 2>&1 &
-            sleep 10
-          
-  ExecuteAPITests:
-    docker:
-      - image: cimg/node:lts-browsers
-    working_directory: ~/QA-Task/API/MockUser
-    steps:
-      - checkout:
-          path: ~/QA-Task
+            sleep 15
+
       - run:
           name: "Execute API tests"
           command: |
             chmod +x node_modules/.bin/mocha && npx mocha api.test.js
-      - run:
-          name: "Wait for the server to start"
-          command: |
-            sleep 15
+
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
 workflows:
   test:
     jobs:
       - RunServerAPI
-      - ExecuteAPITests:
-          requires:
-            - RunServerAPI
