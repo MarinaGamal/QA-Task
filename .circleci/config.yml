@@ -26,7 +26,7 @@ jobs:
             npm install --save-dev mochawesome
       - run:
           name: "Start Mock-User-Auth server"
-          command: 
+          command: |
             chmod +x ./node_modules/mock-user-auth/bin/www.js
             npm run dev
 
