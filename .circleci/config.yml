@@ -7,33 +7,66 @@ orbs:
 jobs:
   ContactUs:
     docker:
-      - image: cimg/node:lts-browsers
-    working_directory: ~/QA-Task-circleci-editor-899-circleci-project-setup/UI/NightWatch
+      -  image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/UI/NightWatch
     steps:
-      - checkout
+      - checkout:
+          path: ~/QA-Task
+
       - browser-tools/install-chrome
-      - node/install-packages
+      - node/install-packages   
+
       - run:
-          name: Run ContactUs UI Tests
-          command: |
-            cd UI/NightWatch
+          name: Run Contact Us
+          command: 
             npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
     docker:
-      - image: cimg/node:lts-browsers
+      -  image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/UI/NightWatch
     steps:
-      - checkout
+      - checkout:
+          path: ~/QA-Task      
       - browser-tools/install-chrome
-      - node/install-packages
+      - node/install-packages 
+
       - run:
-          name: Run SearchDress UI Tests
-          command: |
-            cd UI/NightWatch
+          name: Run Search Dress
+          command: 
             npx nightwatch test/MyStore/SearchDress.js
 
+  APITest:
+    docker:
+      -  image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/API/MockUser
+    steps:
+      - checkout:
+          path: ~/QA-Task  
+      - run:
+          name: "Install Mock-User-Auth and Supertest"
+          command: |
+            npm install mock-user-auth
+            npm install supertest --save-dev
+            npm install --save-dev mocha
+            npm install --save-dev mochawesome
+      - run:
+          name: "Start Mock-User-Auth server"
+          background: true
+          command: "npm run dev"
+          working_directory: API/MockUser
+
+          
+      - run:
+          name: "Execute API tests"
+          working_directory: API/MockUser
+          command: "npx mocha api.test.js"
+         
+    
+
 workflows:
-  test_my_app:
+  test:
     jobs:
       - ContactUs
       - SearchDress
+      - APITest
