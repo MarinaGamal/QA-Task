@@ -21,6 +21,11 @@ jobs:
           command: 
             npx nightwatch test/MyStore/ContactUs.js
 
+      - store_test_results:
+          path: tests_output/
+      - store_artifacts:
+          path: tests_output/
+
   SearchDress:
     docker:
       -  image: cimg/node:lts-browsers
@@ -35,8 +40,12 @@ jobs:
           name: Run Search Dress
           command: 
             npx nightwatch test/MyStore/SearchDress.js
+      - store_test_results:
+          path: tests_output/
+      - store_artifacts:
+          path: tests_output/
 
-  APITest:
+  RunServerAPI:
     docker:
       -  image: cimg/node:lts-browsers
     working_directory: ~/QA-Task/API/MockUser
@@ -53,17 +62,31 @@ jobs:
       - run:
           name: "Start Mock-User-Auth server"
           background: true
-          command: "npm run dev"
+          command:  
+            chmod -R a+x node_modules && nohup npm run dev > server.log 2>&1 &
+            sleep 10
           
+  ExecuteAPITests:
+    docker:
+      - image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/API/MockUser
+    steps:
+      - checkout:
+          path: ~/QA-Task
       - run:
           name: "Execute API tests"
-          command: "npx mocha api.test.js"
-         
-    
-
+          command: |
+            chmod +x node_modules/.bin/mocha && npx mocha api.test.js
+      - run:
+          name: "Wait for the server to start"
+          command: |
+            sleep 15
+      - store_artifacts:
+          path: API/MockUser/mochawesome-report/
 workflows:
   test:
     jobs:
-      - ContactUs
-      - SearchDress
-      - APITest
+      - RunServerAPI
+      - ExecuteAPITests:
+          requires:
+            - RunServerAPI
