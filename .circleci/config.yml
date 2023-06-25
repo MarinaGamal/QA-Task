@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Run ContactUs UI Tests
           command: |
-            cd QA-Task/UI/NightWatch
+            cd UI/NightWatch
             npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
@@ -28,7 +28,7 @@ jobs:
       - run:
           name: Run SearchDress UI Tests
           command: |
-            cd QA-Task/UI/NightWatch
+            cd UI/NightWatch
             npx nightwatch test/MyStore/SearchDress.js
 
 workflows:
