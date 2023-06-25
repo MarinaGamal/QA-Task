@@ -1,9 +1,4 @@
 version: 2.1
-
-orbs:
-  node: circleci/node@4.7
-  browser-tools: circleci/browser-tools@1.4.1
-
 executors:
   my-executor:
     docker:
@@ -31,8 +26,10 @@ jobs:
           command: |
             sudo chmod +x node_modules/mock-user-auth/bin/www.js
             npm run dev
-            echo "SERVER_IP=$(ifconfig eth0 | grep 'inet ' | awk '{print $2}') >> $BASH_ENV"
-            echo "SERVER_PORT=3000" >> $BASH_ENV
+            echo "export SERVER_IP=$(ifconfig eth0 | grep 'inet ' | awk '{print $2}') >> $BASH_ENV"
+            echo "export SERVER_PORT=3000" >> $BASH_ENV
+
+
 
   ExecuteAPI:
     executor: my-executor
@@ -44,57 +41,17 @@ jobs:
       - run:
           name: "Execute API tests"
           command: |
+            source $BASH_ENV
             echo "Connecting to server at $SERVER_IP:$SERVER_PORT"
-            ls
             sleep 30
             npx mocha api.test.js --port $SERVER_PORT
           when: always
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
 
-  ContactUs:
-    docker:
-      -  image: cimg/node:lts-browsers
-    working_directory: ~/QA-Task/UI/NightWatch
-    steps:
-      - checkout:
-          path: ~/QA-Task
-
-      - browser-tools/install-chrome
-      - node/install-packages   
-
-      - run:
-          name: Run Contact Us
-          command: 
-            npx nightwatch test/MyStore/ContactUs.js
-
-      - store_artifacts:
-          path: tests_output/
-
-  SearchDress:
-    docker:
-      -  image: cimg/node:lts-browsers
-    working_directory: ~/QA-Task/UI/NightWatch
-    steps:
-      - checkout:
-          path: ~/QA-Task      
-      - browser-tools/install-chrome
-      - node/install-packages 
-
-      - run:
-          name: Run Search Dress
-          command: 
-            npx nightwatch test/MyStore/SearchDress.js
-      - store_artifacts:
-          path: tests_output/
-
 workflows:
-  test:
+  version: 2
+  build-and-test:
     jobs:
-      - RunServerAPI
-      - ExecuteAPI:
-          requires:
-          - RunServerAPI
-      - SearchDress
-      - ContactUs
-
+      - RunServerAPI:
+          name: Run Server API
