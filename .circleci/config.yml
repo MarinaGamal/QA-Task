@@ -9,7 +9,8 @@ jobs:
     docker:
       - image: cimg/node:lts-browsers
     steps:
-      - checkout
+      - checkout:
+            path: ~/repo
       - browser-tools/install-chrome
       - node/install-packages
       - run:
