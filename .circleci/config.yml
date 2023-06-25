@@ -23,7 +23,6 @@ jobs:
             npm install --save-dev mochawesome
       - run:
           name: "Start Mock-User-Auth server"
-          background: true
           command: |
             npm run dev
 
@@ -38,7 +37,7 @@ jobs:
       - run:
           name: "Check server accessibility"
           command: |
-            sleep 10
+            sleep 30
             curl http://localhost:3000/
 
       - run:
