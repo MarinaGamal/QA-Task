@@ -16,11 +16,11 @@ jobs:
       - run:
           name: "Install Mock-User-Auth and Supertest"
           command: |
-            npm install mock-user-auth
-            npm install supertest --save-dev
-            npm install --save-dev mocha
-            npm install --save-dev mochawesome
-            npm install nodemon --save-dev
+            sudo npm install mock-user-auth
+            sudo npm install supertest --save-dev
+            sudo npm install --save-dev mocha
+            sudo npm install --save-dev mochawesome
+            sudo npm install nodemon --save-dev
 
       - run:
           name: Start Mock-User-Auth server
