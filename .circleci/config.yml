@@ -31,6 +31,10 @@ jobs:
           command: |
             sudo chmod +x node_modules/mock-user-auth/bin/www.js
             npm run dev
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ~/MockUser
 
   ExecuteAPI:
     executor: my-executor
@@ -40,12 +44,12 @@ jobs:
       - checkout:
           path: ~/QA-Task
       - attach_workspace:
-          at: ~/QA-Task/API/MockUser
+          at: ~/MockUser
       - run:
           name: "Execute API tests"
           command: |
             chmod +x node_modules/.bin/mocha
-            sleep 10
+            sleep 30
             npx mocha api.test.js  --port 3000
             no_output_timeout: 10m
           when: always
@@ -92,9 +96,7 @@ workflows:
   test:
     jobs:
       - RunServerAPI
-      - ExecuteAPI:
-          requires:
-            - RunServerAPI
+      - ExecuteAPI
       - SearchDress
       - ContactUs
 
