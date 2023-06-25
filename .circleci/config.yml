@@ -39,7 +39,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/QA-Task/
+          at: ~/QA-Task/API/MockUser
     
       - run:
           name: "Execute API tests"
