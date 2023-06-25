@@ -61,29 +61,16 @@ jobs:
             npm install --save-dev mochawesome
       - run:
           name: "Start Mock-User-Auth server"
-          background: true
+          
           command:  |
             chmod -R a+x node_modules 
             npm run dev 
-            sleep 20
-
-      - run:
-          name: "check"
-          command:  
-            ps aux
+            sleep 10
       
-
-  ExecuteAPITests:
-    docker:
-      -  image: cimg/node:lts-browsers
-    working_directory: ~/QA-Task/API/MockUser
-    steps:
-      - checkout:
-          path: ~/QA-Task 
       - run:
           name: "Execute API tests"
           command: |
-            sleep 10
+            
             chmod +x node_modules/.bin/mocha  
             npx mocha api.test.js
 
