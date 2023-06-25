@@ -17,6 +17,7 @@ jobs:
       - run:
           name: Run UI Tests
           command: 
+            cd ..
             cd UI/NightWatch
             npx nightwatch test/MyStore/ContactUs.js
 
