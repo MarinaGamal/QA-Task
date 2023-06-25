@@ -65,6 +65,7 @@ jobs:
           command:  |
             chmod -R a+x node_modules 
             npm run dev 
+            sleep 20
 
   ExecuteAPITests:
     docker:
