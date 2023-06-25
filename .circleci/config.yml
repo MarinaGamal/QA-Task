@@ -12,6 +12,16 @@ jobs:
     steps:
       - checkout:
           path: ~/QA-Task
+      
+      - run:
+          name: "Install Mock-User-Auth and Supertest"
+          command: |
+            npm install mock-user-auth
+            npm install supertest --save-dev
+            npm install --save-dev mocha
+            npm install --save-dev mochawesome
+            npm install nodemon --save-dev
+
       - run:
           name: Start Mock-User-Auth server
           background: true
