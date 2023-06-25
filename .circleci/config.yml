@@ -37,7 +37,6 @@ jobs:
       - run:
           name: "Execute API tests"
           command: |
-            chmod +x node_modules/.bin/mocha
             npx mocha api.test.js
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
