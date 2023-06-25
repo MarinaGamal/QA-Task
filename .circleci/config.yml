@@ -27,6 +27,7 @@ jobs:
             npm install nodemon --save-dev
       - run:
           name: "Start Mock-User-Auth server"
+          background: true
           command: |
             sudo chmod +x node_modules/mock-user-auth/bin/www.js
             npm run dev
