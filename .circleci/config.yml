@@ -78,14 +78,11 @@ jobs:
             chmod +x node_modules/.bin/mocha && npx mocha api.test.js
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
+
 workflows:
   test:
     jobs:
-      - RunServerAPI:
-          name: "Start Mock-User-Auth Server"
-          filters:
-            branches:
-              only: main
+      - RunServerAPI
       - ExecuteAPITests:
           requires:
             - RunServerAPI
