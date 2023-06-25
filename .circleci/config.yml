@@ -43,6 +43,7 @@ jobs:
       - run:
           name: "Execute API tests"
           command: |
+            pwd
             echo "Connecting to server at $SERVER_IP:$SERVER_PORT"
             sleep 30
             npx mocha api.test.js --port $SERVER_PORT
