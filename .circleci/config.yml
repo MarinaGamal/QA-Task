@@ -81,5 +81,13 @@ jobs:
 workflows:
   test:
     jobs:
-      - RunServerAPI
-      - ExecuteAPITests
+      - RunServerAPI:
+          name: "Start Mock-User-Auth Server"
+          filters:
+            branches:
+              only: main
+      - ExecuteAPITests:
+          requires:
+            - RunServerAPI
+      - ContactUs
+      - SearchDress
