@@ -64,11 +64,11 @@ jobs:
           background: true
           command:  |
             chmod -R a+x node_modules && nohup npm run dev > server.log 2>&1 &
-            sleep 60
 
       - run:
           name: "Execute API tests"
           command: |
+            sleep 60
             chmod +x node_modules/.bin/mocha && npx mocha api.test.js
 
       - store_artifacts:
