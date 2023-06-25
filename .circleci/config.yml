@@ -94,7 +94,9 @@ workflows:
   test:
     jobs:
       - RunServerAPI
-      - ExecuteAPI
+      - ExecuteAPI:
+          require:
+            RunServerAPI
       - SearchDress
       - ContactUs
 
