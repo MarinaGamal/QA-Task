@@ -31,16 +31,16 @@ jobs:
           command: |
             sudo chmod +x node_modules/mock-user-auth/bin/www.js
             npm run dev
-            cat server.log
 
   ExecuteAPI:
     executor: my-executor
-    
+    working_directory: ~/QA-Task/API/MockUser
+
     steps:
-      - checkout
+      - checkout:
+          path: ~/QA-Task
       - attach_workspace:
           at: ~/QA-Task/API/MockUser
-    
       - run:
           name: "Execute API tests"
           command: |
