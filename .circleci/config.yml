@@ -29,11 +29,12 @@ jobs:
 
   ExecuteAPI:
     executor: my-executor
+    
     steps:
       - checkout
       - attach_workspace:
           at: ~/QA-Task/
-
+          
       - run:
           name: "Check server accessibility"
           command: |
@@ -46,7 +47,7 @@ jobs:
             cd API/MockUser
             chmod +x node_modules/.bin/mocha
             sleep 10
-            npx mocha api.test.js   --port 3000
+            npx mocha api.test.js  --port 3000
             no_output_timeout: 10m
           when: always
       - store_artifacts:
