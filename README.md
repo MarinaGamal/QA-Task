@@ -1,4 +1,5 @@
 # Testing My Store Website using NightwatchJS and testing Mocha-Auth-User API Routes using SuperTest
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/MarinaGamal/QA-Task/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/MarinaGamal/QA-Task/tree/main)
 
 ## Overview
 This README provides instructions on how to test the My Store website using NightwatchJS and test the Mocha-Auth-User API routes using Supertest. It includes steps for setting up and running UI tests using NightwatchJS and API tests using Supertest and Mocha.
