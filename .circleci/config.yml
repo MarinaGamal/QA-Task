@@ -64,7 +64,7 @@ jobs:
           background: true
           command:  |
             chmod -R a+x node_modules && nohup npm run dev > server.log 2>&1 &
-            sleep 15
+            sleep 60
 
       - run:
           name: "Execute API tests"
