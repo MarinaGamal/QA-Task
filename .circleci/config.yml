@@ -7,21 +7,14 @@ orbs:
 jobs:
   ContactUs:
     docker:
-      - image: cimg/node:lts-browsers
+      -  image: cimg/node:lts-browsers
     working_directory: ~/QA-Task/UI/NightWatch
     steps:
       - checkout:
           path: ~/QA-Task
 
       - browser-tools/install-chrome
-      - node/install-packages
-      - run:
-          name: Start Mock-User-Auth server
-          background: true
-          command: |
-            cd ../API/MockUser
-            chmod -R a+x node_modules
-            nohup npm run dev > server.log 2>&1 &
+      - node/install-packages   
 
       - run:
           name: Run Contact Us
@@ -35,20 +28,13 @@ jobs:
 
   SearchDress:
     docker:
-      - image: cimg/node:lts-browsers
+      -  image: cimg/node:lts-browsers
     working_directory: ~/QA-Task/UI/NightWatch
     steps:
       - checkout:
           path: ~/QA-Task      
       - browser-tools/install-chrome
-      - node/install-packages
-      - run:
-          name: Start Mock-User-Auth server
-          background: true
-          command: |
-            cd ../API/MockUser
-            chmod -R a+x node_modules
-            nohup npm run dev > server.log 2>&1 &
+      - node/install-packages 
 
       - run:
           name: Run Search Dress
@@ -61,7 +47,7 @@ jobs:
 
   APITest:
     docker:
-      - image: cimg/node:lts-browsers
+      -  image: cimg/node:lts-browsers
     working_directory: ~/QA-Task/API/MockUser
     steps:
       - checkout:
@@ -90,4 +76,3 @@ workflows:
   test:
     jobs:
       - APITest
-
