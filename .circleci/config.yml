@@ -24,7 +24,6 @@ jobs:
     steps:
       - checkout
       - browser-tools/install-chrome
-      - node/install-packages   
 
       - run:
           name: Run UI Tests
