@@ -3,7 +3,7 @@ executors:
   my-executor:
     docker:
       - image: cimg/node:lts-browsers
-      
+
 
 jobs:
   TestAPIs:
@@ -33,6 +33,7 @@ jobs:
           name: Execute API tests
           command: |
            sleep 10
+           chmod +x node_modules/mocha
            npx mocha api.test.js --endpoint http://localhost:3000
           when: on_success
 
