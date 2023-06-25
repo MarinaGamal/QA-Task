@@ -1,26 +1,22 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@5.0.2
+  node: circleci/node@4.7
   browser-tools: circleci/browser-tools@1.4.1
 
 jobs:
 
   ContactUs:
-    executor: node/default
     docker:
       - image: cimg/node:13.12-browsers
     steps:
       - checkout
       - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
-   
+      - node/install-packages   
+
       - run:
           name: Run UI Tests
-          command: |
-            cd UI/NightWatch
-            npm install
-            chmod -R a+x node_modules
+          command: 
             npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
