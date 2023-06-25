@@ -39,6 +39,7 @@ jobs:
           command: |
             cd API/MockUser
             chmod +x node_modules/.bin/mocha
+            sleep 20
             npx mocha api.test.js  
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
