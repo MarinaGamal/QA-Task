@@ -8,9 +8,9 @@ jobs:
   ContactUs:
     docker:
       - image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task-circleci-editor-899-circleci-project-setup/UI/NightWatch
     steps:
-      - checkout:
-            path: ~/QA-Task
+      - checkout
       - browser-tools/install-chrome
       - node/install-packages
       - run:
