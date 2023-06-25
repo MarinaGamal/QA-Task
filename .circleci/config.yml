@@ -17,11 +17,11 @@ jobs:
       - run:
           name: "Install Mock-User-Auth and Supertest"
           command: |
-            sudo npm install mock-user-auth
-            sudo npm install supertest --save-dev
-            sudo npm install --save-dev mocha
-            sudo npm install --save-dev mochawesome
-            sudo npm install nodemon --save-dev
+             npm install mock-user-auth
+             npm install supertest --save-dev
+             npm install --save-dev mocha
+             npm install --save-dev mochawesome
+             npm install nodemon --save-dev
 
       - run:
           name: Start Mock-User-Auth server
@@ -32,9 +32,9 @@ jobs:
       - run:
           name: Execute API tests
           command: |
-           sleep 10
-           chmod +x node_modules/mocha
-           npx mocha api.test.js --endpoint http://localhost:3000
+            sleep 10
+            sudo chmod +x node_modules/.bin/mocha
+            npx mocha api.test.js --endpoint http://localhost:3000
           when: on_success
 
 workflows:
