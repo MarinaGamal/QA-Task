@@ -45,7 +45,7 @@ jobs:
       - store_artifacts:
           path: tests_output/
 
-  APITest:
+  RunServerAPI:
     docker:
       -  image: cimg/node:lts-browsers
     working_directory: ~/QA-Task/API/MockUser
@@ -65,14 +65,21 @@ jobs:
           command:  
             chmod -R a+x node_modules && nohup npm run dev > server.log 2>&1 &
           
+  ExecuteAPITests:
+    docker:
+      - image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/API/MockUser
+    steps:
+      - checkout:
+          path: ~/QA-Task
       - run:
           name: "Execute API tests"
-          command: chmod +x node_modules/.bin/mocha && npx mocha api.test.js
-         
+          command: |
+            chmod +x node_modules/.bin/mocha && npx mocha api.test.js
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
-
 workflows:
   test:
     jobs:
-      - APITest
+      - RunServerAPI
+      - ExecuteAPITests
