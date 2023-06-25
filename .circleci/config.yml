@@ -18,12 +18,12 @@ jobs:
       - run:
           name: Setup
           command: 
-            cd UI/NightWatch
+            cd NightWatch
             npm install
       - run:
           name: Run UI Tests
           command: 
-            cd UI/NightWatch
+            cd NightWatch
             npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
