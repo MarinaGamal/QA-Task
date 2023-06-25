@@ -8,9 +8,11 @@ jobs:
   ContactUs:
     docker:
       -  image: cimg/node:lts-browsers
-    working_directory: ~/QA-Task/
+    working_directory: ~/QA-Task/UI/NightWatch
     steps:
-      - checkout
+      - checkout:
+          path: ~/QA-Task
+
       - browser-tools/install-chrome
       - node/install-packages   
 
