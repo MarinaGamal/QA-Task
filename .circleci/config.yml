@@ -39,14 +39,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/QA-Task/
-          
-      - run:
-          name: "Check server accessibility"
-          command: |
-            cd API/MockUser
-            sleep 10
-            curl http://localhost:3000/
-
+    
       - run:
           name: "Execute API tests"
           command: |
