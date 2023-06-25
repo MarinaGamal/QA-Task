@@ -10,7 +10,7 @@ jobs:
       - image: cimg/node:lts-browsers
     steps:
       - checkout:
-            path: ~/repo
+            path: ~/QA-Task
       - browser-tools/install-chrome
       - node/install-packages
       - run:
