@@ -29,8 +29,6 @@ jobs:
             echo "export SERVER_IP=$(ifconfig eth0 | grep 'inet ' | awk '{print $2}') >> $BASH_ENV"
             echo "export SERVER_PORT=3000" >> $BASH_ENV
 
-
-
   ExecuteAPI:
     executor: my-executor
     working_directory: ~/QA-Task/API/MockUser
@@ -55,3 +53,7 @@ workflows:
     jobs:
       - RunServerAPI:
           name: Run Server API
+      - ExecuteAPI:
+          name: Execute API
+          requires:
+            - RunServerAPI
