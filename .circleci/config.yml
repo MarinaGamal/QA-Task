@@ -36,6 +36,8 @@ jobs:
       SERVER_PORT: $SERVER_PORT
 
     steps:
+      - checkout:
+          path: ~/QA-Task/API/MockUser
       - attach_workspace:
           at: ~/QA-Task
       - run:
