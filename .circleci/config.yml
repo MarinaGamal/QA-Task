@@ -32,12 +32,13 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/QA-Task
+          at: ~/QA-Task/API/MockUser
 
       - run:
           name: "Execute API tests"
           command: |
-            npx mocha api.test.js
+            chmod +x node_modules/.bin/mocha
+            npx mocha --delay API/MockUser/api.test.js --host 127.0.0.1 --port 3000
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
 
