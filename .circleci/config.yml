@@ -39,7 +39,7 @@ jobs:
           command: |
             cd API/MockUser
             chmod +x node_modules/.bin/mocha
-            npx mocha --delay API/MockUser/api.test.js --host 127.0.0.1 --port 3000
+            npx mocha --delay api.test.js --host 127.0.0.1 --port 3000
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
 
