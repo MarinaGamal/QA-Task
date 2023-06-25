@@ -62,7 +62,8 @@ jobs:
       - run:
           name: "Start Mock-User-Auth server"
           background: true
-          command: sudo npm run dev
+          command:  
+            chmod -R a+x node_modules && npm run dev
           
 
           
