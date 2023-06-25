@@ -7,33 +7,28 @@ orbs:
 jobs:
   ContactUs:
     docker:
-      -  image: cimg/node:lts-browsers
-
+      - image: cimg/node:lts-browsers
     steps:
       - checkout
       - browser-tools/install-chrome
-      - node/install-packages   
-
+      - node/install-packages
       - run:
-          name: Run UI Tests
-          command: 
+          name: Run ContactUs UI Tests
+          command: |
             cd QA-Task/UI/NightWatch
             npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
     docker:
-      -  image: cimg/node:lts-browsers
+      - image: cimg/node:lts-browsers
     steps:
       - checkout
       - browser-tools/install-chrome
-      - node/install-packages 
-
+      - node/install-packages
       - run:
-          name: Run UI Tests
+          name: Run SearchDress UI Tests
           command: |
-            cd UI/NightWatch
-            npm install
-            chmod -R a+x node_modules
+            cd QA-Task/UI/NightWatch
             npx nightwatch test/MyStore/SearchDress.js
 
 workflows:
