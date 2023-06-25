@@ -31,6 +31,7 @@ jobs:
           command: |
             sudo chmod +x node_modules/mock-user-auth/bin/www.js
             npm run dev
+            cat server.log
 
   ExecuteAPI:
     executor: my-executor
