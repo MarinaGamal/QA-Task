@@ -16,13 +16,8 @@ jobs:
       - node/install-packages   
 
       - run:
-          name: Setup
-          command: 
-            npm install
-      - run:
           name: Run UI Tests
           command: 
-            cd NightWatch
             npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
