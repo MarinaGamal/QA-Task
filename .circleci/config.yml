@@ -8,7 +8,7 @@ jobs:
   ContactUs:
     docker:
       -  image: cimg/node:lts-browsers
-    working_directory: ~/UI/NightWatch 
+    working_directory: ~/QA-Task/UI
 
     steps:
       - checkout
