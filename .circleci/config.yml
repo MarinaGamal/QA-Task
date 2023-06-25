@@ -43,6 +43,7 @@ jobs:
       - run:
           name: "Check server accessibility"
           command: |
+            cd API/MockUser
             sleep 30
             curl http://localhost:3000/
 
