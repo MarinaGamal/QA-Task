@@ -13,11 +13,8 @@ describe('Search Dress Test', function () {
   });
   
   
- 	after: function (browser, done) {
-    browser.end().then(function () {
-      done();
-    });
-  },
+  after(browser => browser.end());
+
 });
 
 
