@@ -65,6 +65,11 @@ jobs:
           command:  |
             chmod -R a+x node_modules 
             npm run dev 
+      - run:
+          name: "Check server accessibility"
+          command: |
+            sleep 10  
+            curl http://localhost:3000
 
   ExecuteAPI: 
     docker:
