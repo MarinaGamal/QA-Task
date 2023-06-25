@@ -19,8 +19,7 @@ jobs:
       - run:
           name: Run UI Tests
           command: 
-            cd UI/NightWatch
-            npx nightwatch test/MyStore/ContactUs.js
+            cd UI/NightWatch && npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
     docker:
