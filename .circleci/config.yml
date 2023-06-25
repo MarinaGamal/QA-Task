@@ -5,9 +5,8 @@ executors:
       - image: cimg/node:lts-browsers
 
 jobs:
-  RunServerAPI:
+  TestAPIs:
     executor: my-executor
-    working_directory: ~/QA-Task/API/MockUser
 
     steps:
       - checkout
@@ -28,4 +27,4 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - RunServerAPI
+      - TestAPIs
