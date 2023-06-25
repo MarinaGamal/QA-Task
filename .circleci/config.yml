@@ -32,7 +32,7 @@ jobs:
           name: Start Mock-User-Auth server
           background: true
           command: |
-            npm run dev
+            timeout 3m npm run dev &
 
       - run:
           name: Execute API tests
