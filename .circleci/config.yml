@@ -7,9 +7,11 @@ executors:
 jobs:
   TestAPIs:
     executor: my-executor
+    working_directory: ~/QA-Task/API/MockUser
 
     steps:
-      - checkout
+      - checkout:
+          path: ~/QA-Task
       - run:
           name: Start Mock-User-Auth server
           background: true
