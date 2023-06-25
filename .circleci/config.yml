@@ -76,8 +76,6 @@ jobs:
           name: Run Search Dress
           command: 
             npx nightwatch test/MyStore/SearchDress.js
-      - store_test_results:
-          path: tests_output/
       - store_artifacts:
           path: tests_output/
 
