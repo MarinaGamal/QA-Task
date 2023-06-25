@@ -63,7 +63,8 @@ jobs:
           name: "Start Mock-User-Auth server"
           background: true
           command:  |
-            chmod -R a+x node_modules && npm run dev 
+            chmod -R a+x node_modules 
+            npm run dev 
 
   ExecuteAPITests:
     docker:
