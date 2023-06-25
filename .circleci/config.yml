@@ -27,7 +27,7 @@ jobs:
       - run:
           name: "Start Mock-User-Auth server"
           command: |
-            chmod +x ./node_modules/mock-user-auth/bin/
+            chmod +x node_modules/mock-user-auth/bin/
             npm run dev
 
   ExecuteAPI:
