@@ -62,7 +62,7 @@ jobs:
       - run:
           name: "Start Mock-User-Auth server"
           background: true
-          command:  
+          command:  |
             chmod -R a+x node_modules && nohup npm run dev > server.log 2>&1 &
             sleep 15
 
