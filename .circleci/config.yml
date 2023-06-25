@@ -40,6 +40,8 @@ jobs:
             sleep 10
             sudo chmod +x node_modules/.bin/mocha
             npx mocha api.test.js --endpoint http://localhost:3000
+            curl -X POST http://localhost:3000/stop-server
+
           when: on_success
 
   ContactUs:
