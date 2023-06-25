@@ -42,7 +42,7 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: ~QA/Task
+          at: ~/QA-Task
       - run:
           name: "Execute API tests"
           command: |
