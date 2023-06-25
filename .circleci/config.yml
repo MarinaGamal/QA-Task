@@ -74,6 +74,11 @@ jobs:
       - checkout:
           path: ~/QA-Task  
       - run:
+          name: "Check server accessibility"
+          command: |
+            sleep 10  
+            curl http://localhost:3000
+      - run:
           name: "Execute API tests"
           command: |
             sleep 30
