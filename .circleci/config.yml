@@ -76,7 +76,7 @@ jobs:
           name: "Check server accessibility"
           command: |
             sleep 30
-            docker ps 
+            ps aux
       - run:
           name: "Execute API tests"
           command: |
