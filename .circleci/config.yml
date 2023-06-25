@@ -60,16 +60,10 @@ jobs:
             npm install --save-dev mocha
             npm install --save-dev mochawesome
       - run:
-          name: "Start Mock-User-Auth server"
-          
+          name: "Start Mock-User-Auth server" 
           command:  |
             chmod -R a+x node_modules 
             npm run dev 
-      - run:
-          name: "Check server accessibility"
-          command: |
-            sleep 10  
-            curl http://localhost:3000
 
   ExecuteAPI: 
     docker:
@@ -81,12 +75,11 @@ jobs:
       - run:
           name: "Check server accessibility"
           command: |
-            sleep 10  
+            sleep 50
             curl http://localhost:3000
       - run:
           name: "Execute API tests"
           command: |
-            sleep 30
             chmod +x node_modules/.bin/mocha  
             npx mocha api.test.js
 
