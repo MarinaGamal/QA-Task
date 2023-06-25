@@ -38,7 +38,7 @@ jobs:
           name: "Check server accessibility"
           command: |
             sleep 10
-            curl http://127.0.0.1:3000
+            curl http://localhost:3000/
 
       - run:
           name: "Execute API tests"
@@ -46,7 +46,7 @@ jobs:
             cd API/MockUser
             chmod +x node_modules/.bin/mocha
             sleep 10
-            npx mocha api.test.js  --host 127.0.0.1 --port 3000
+            npx mocha api.test.js   --port 3000
             no_output_timeout: 10m
           when: always
       - store_artifacts:
