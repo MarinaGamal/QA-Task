@@ -1,40 +1,25 @@
 version: 2.1
-
 orbs:
-  node: circleci/node@4.7
   browser-tools: circleci/browser-tools@1.4.1
+  node: circleci/node@4.7
 
 jobs:
-  ContactUs:
+  ui-tests:
     docker:
-      -  image: cimg/node:lts-browsers
+      - image: cimg/node:lts-browsers
     steps:
       - checkout
-      - browser-tools/install-chrome
-      - node/install-packages   
-
+      - browser-tools/install-browser-tools
+      - node/install-packages
       - run:
-          name: Run UI Tests
-          command: 
-            npx nightwatch test/MyStore/ContactUs.js
+          name: "Run ContactUs tests"
+          command: "npx nightwatch test/MyStore/ContactUs.js"
 
-  SearchDress:
-    docker:
-      -  image: cimg/node:lts-browsers
-    steps:
-      - checkout
-      - browser-tools/install-chrome
 
-      - run:
-          name: Run UI Tests
-          command: |
-            cd UI/NightWatch
-            npm install
-            chmod -R a+x node_modules
-            npx nightwatch test/MyStore/SearchDress.js
 
+ 
 workflows:
-  test_my_app:
+  version: 2
+  ui-tests-workflow:
     jobs:
-      - ContactUs
-      - SearchDress
+      - ui-tests
