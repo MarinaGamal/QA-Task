@@ -10,55 +10,22 @@ jobs:
     working_directory: ~/QA-Task/API/MockUser
 
     steps:
-      - checkout:
-          path: ~/QA-Task
+      - checkout
       - run:
-          name: "Install Mock-User-Auth and Supertest"
-          command: |
-            npm install mock-user-auth
-            npm install supertest --save-dev
-            npm install --save-dev mocha
-            npm install --save-dev mochawesome
-            npm install nodemon --save-dev
-      - run:
-          name: "Start Mock-User-Auth server"
+          name: Start Mock-User-Auth server
           background: true
           command: |
-            sudo chmod +x node_modules/mock-user-auth/bin/www.js
             npm run dev
 
-  ExecuteAPI:
-    executor: my-executor
-    working_directory: ~/QA-Task/API/MockUser
-
-    environment:
-      SERVER_IP: $SERVER_IP
-      SERVER_PORT: $SERVER_PORT
-
-    steps:
-      - attach_workspace:
-          at: ~/QA-Task
       - run:
-          name: "Execute API tests"
+          name: Execute API tests
           command: |
-            echo "Connecting to server at $SERVER_IP:$SERVER_PORT"
-            sleep 30
-            cd API/MockUser
-            echo "Current working directory: $(pwd)"
-            ls -la  # Verify the file is present in the current directory
-            npx mocha api.test.js --port $SERVER_PORT
-          when: always
-      - store_artifacts:
-          path: API/MockUser/mochawesome-report/
+           sleep 10
+           npx mocha api.test.js --endpoint http://localhost:3000
+          when: on_success
 
 workflows:
   version: 2
   build-and-test:
     jobs:
-      - RunServerAPI:
-          name: RunServerAPI
-
-      - ExecuteAPI:
-          name: Execute API
-          requires:
-            - RunServerAPI
+      - RunServerAPI
