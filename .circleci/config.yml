@@ -41,10 +41,8 @@ jobs:
     working_directory: ~/QA-Task/API/MockUser
 
     steps:
-      - checkout:
-          path: ~/QA-Task
       - attach_workspace:
-          at: API/MockUser
+          at: ~QA/Task
       - run:
           name: "Execute API tests"
           command: |
