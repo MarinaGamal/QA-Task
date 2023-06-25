@@ -33,19 +33,15 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/QA-Task
-      - run:
-          name: "Check server accessibility"
-          command: |
-            sleep 30
-            ps aux
+
       - run:
           name: "Execute API tests"
           command: |
             chmod +x node_modules/.bin/mocha
-            npx mocha API/MockUser/api.test.js
+            npx mocha api.test.js
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
-          
+
   ContactUs:
     docker:
       -  image: cimg/node:lts-browsers
