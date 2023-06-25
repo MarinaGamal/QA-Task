@@ -95,8 +95,8 @@ workflows:
     jobs:
       - RunServerAPI
       - ExecuteAPI:
-          require:
-            RunServerAPI
+          requires:
+          - RunServerAPI
       - SearchDress
       - ContactUs
 
