@@ -66,11 +66,17 @@ jobs:
             chmod -R a+x node_modules 
             npm run dev 
             sleep 10
-      
+
+  ExecuteAPI: 
+    docker:
+      -  image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/API/MockUser
+    steps:
+      - checkout:
+          path: ~/QA-Task  
       - run:
           name: "Execute API tests"
           command: |
-            
             chmod +x node_modules/.bin/mocha  
             npx mocha api.test.js
 
@@ -81,4 +87,7 @@ workflows:
   test:
     jobs:
       - RunServerAPI
+      - ExecuteAPI:
+          requires:
+            - RunServerAPI
       
