@@ -63,7 +63,7 @@ jobs:
           name: "Start Mock-User-Auth server"
           background: true
           command:  |
-            chmod -R a+x node_modules && nohup npm run dev > server.log 2>&1 &
+            chmod -R a+x node_modules && npm run dev 
 
   ExecuteAPITests:
     docker:
@@ -80,7 +80,7 @@ jobs:
 
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
-          
+
 workflows:
   test:
     jobs:
