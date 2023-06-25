@@ -46,6 +46,7 @@ jobs:
       - run:
           name: "Execute API tests"
           command: |
+            cd API/MockUser
             chmod +x node_modules/.bin/mocha
             sleep 30
             npx mocha api.test.js  --port 3000
