@@ -8,6 +8,8 @@ jobs:
   ContactUs:
     docker:
       -  image: cimg/node:lts-browsers
+    working_directory: ~/UI/NightWatch 
+
     steps:
       - checkout
       - browser-tools/install-chrome
