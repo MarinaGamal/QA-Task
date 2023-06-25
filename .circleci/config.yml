@@ -17,28 +17,27 @@ jobs:
       - node/install-packages   
 
       - run:
-          name: Run UI Tests
+          name: Run Contact Us
           command: 
             npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
     docker:
       -  image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/UI/NightWatch
     steps:
-      - checkout
+      - checkout:
+          path: ~/QA-Task      
       - browser-tools/install-chrome
       - node/install-packages 
 
       - run:
-          name: Run UI Tests
-          command: |
-            cd UI/NightWatch
-            npm install
-            chmod -R a+x node_modules
+          name: Run Search Dress
+          command: 
             npx nightwatch test/MyStore/SearchDress.js
 
 workflows:
-  test_my_app:
+  test:
     jobs:
       - ContactUs
       - SearchDress
