@@ -12,8 +12,11 @@ executors:
 jobs:
   RunServerAPI:
     executor: my-executor
+    working_directory: ~/QA-Task/API/MockUser
+
     steps:
-      - checkout
+      - checkout:
+          path: ~/QA-Task
       - run:
           name: "Install Mock-User-Auth and Supertest"
           command: |
