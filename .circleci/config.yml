@@ -45,7 +45,7 @@ jobs:
           name: "Execute API tests"
           command: |
             echo "Connecting to server at $SERVER_IP:$SERVER_PORT"
-            cd API/MockUser
+            ls
             sleep 30
             npx mocha api.test.js --port $SERVER_PORT
           when: always
