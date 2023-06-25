@@ -54,7 +54,7 @@ workflows:
   build-and-test:
     jobs:
       - RunServerAPI:
-          name: Run Server API
+          name: RunServerAPI
 
       - ExecuteAPI:
           name: Execute API
