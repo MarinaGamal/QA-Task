@@ -1,4 +1,9 @@
 version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+  browser-tools: circleci/browser-tools@1.4.1
+  
 executors:
   my-executor:
     docker:
@@ -37,8 +42,46 @@ jobs:
             npx mocha api.test.js --endpoint http://localhost:3000
           when: on_success
 
+  ContactUs:
+    docker:
+      -  image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/UI/NightWatch
+    steps:
+      - checkout:
+          path: ~/QA-Task
+
+      - browser-tools/install-chrome
+      - node/install-packages   
+
+      - run:
+          name: Run Contact Us
+          command: 
+            npx nightwatch test/MyStore/ContactUs.js
+
+      - store_artifacts:
+          path: tests_output/
+
+  SearchDress:
+    docker:
+      -  image: cimg/node:lts-browsers
+    working_directory: ~/QA-Task/UI/NightWatch
+    steps:
+      - checkout:
+          path: ~/QA-Task      
+      - browser-tools/install-chrome
+      - node/install-packages 
+
+      - run:
+          name: Run Search Dress
+          command: 
+            npx nightwatch test/MyStore/SearchDress.js
+      - store_artifacts:
+          path: tests_output/
+
 workflows:
   version: 2
   build-and-test:
     jobs:
       - TestAPIs
+      - ContactUs
+      - SearchDress
