@@ -5,10 +5,9 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.1
 
 jobs:
-
   ContactUs:
     docker:
-      - image: cimg/node:13.12-browsers
+      -  image: cimg/node:lts-browsers
     steps:
       - checkout
       - browser-tools/install-chrome
