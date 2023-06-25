@@ -19,10 +19,12 @@ jobs:
             npx nightwatch test/MyStore/ContactUs.js
 
   SearchDress:
-    executor: node/default
+    docker:
+      -  image: cimg/node:lts-browsers
     steps:
       - checkout
-      - browser-tools/install-browser-tools
+      - browser-tools/install-chrome
+      - node/install-packages   
 
       - run:
           name: Run UI Tests
