@@ -40,7 +40,7 @@ jobs:
             cd API/MockUser
             chmod +x node_modules/.bin/mocha
             sleep 20
-            npx mocha api.test.js  
+            npx mocha api.test.js  --port 3000
       - store_artifacts:
           path: API/MockUser/mochawesome-report/
 
